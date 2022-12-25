@@ -39,14 +39,10 @@ function setChartCanvas() {
 }
 
 function setChartCanvasImage() {    
-    var image = innerCanvas.toDataURL();
-    // Create a link
-    var aDownloadLink = document.createElement('a');
-    // Add the name of the file to the link
-    aDownloadLink.download = 'grafico_enr.png';
-    // Attach the data to the link
+    let image = innerCanvas.toDataURL();
+    let aDownloadLink = document.createElement('a');
+    aDownloadLink.download = 'grafico_enr.png'; //Posibilidad de cambiar el nombre
     aDownloadLink.href = image;
-    // Get the code to click the download link
     aDownloadLink.click();
 }
 
@@ -59,18 +55,18 @@ pngDownload.addEventListener('click', function(){
 
 
 //// IFRAMES ////
-let githubRepo = 'informe_personas'; //Completar con el nombre del repositorio de Github (p.e.: "informe_personas_mayores_4_11")
+let githubRepo = 'base-template-dw'; //Cambiar el nombre del repositorio por el que se cree
 //Iframe fijo
 let id1 = document.getElementById('iframe-fixed');
 id1.innerHTML = '<iframe src="https://EnvejecimientoEnRed/' + githubRepo + '/" style="height:720px;width:100%;" title="Gráfico Envejecimiento en Red"></iframe>';
 
 //Iframe responsive
 let id2 = document.getElementById('iframe-responsive');
-id2.innerHTML = "<div id='viz_cchs_informe_perfil_mayores_2022'></div><script type='text/javascript' src='https://pym.nprapps.org/pym.v1.min.js'><\/script><script>let pymParent = new pym.Parent('grafico_enr', 'https://EnvejecimientoEnRed.github.io/" + githubRepo + "/', {}<\/script>";
+id2.innerHTML = "<div id='grafico_enr'></div><script type='text/javascript' src='https://pym.nprapps.org/pym.v1.min.js'><\/script><script>let pymParent = new pym.Parent('grafico_enr', 'https://EnvejecimientoEnRed.github.io/" + githubRepo + "/', {}<\/script>";
 //// FINAL - IFRAMES ////
  
 
-//// REDES SOCIALES ////
+//// REDES SOCIALES (Posibilidad de cambiar 'text' en Twitter y WhatsApp y 'title' en Linkedin) ////
 function setRRSS() {
     let urlPage = window.location.href;
     //Facebook
