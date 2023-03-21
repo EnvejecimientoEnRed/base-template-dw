@@ -14,15 +14,29 @@ setChartHeight();
 //// DESCARGA IMAGEN ////
 function setChartCanvasImage() {    
     let aDownloadLink = document.createElement('a');
-    aDownloadLink.download = 'grafico_enr'; //Posibilidad de cambiar el nombre ¡¡¡MODIFICAR!!!
+    aDownloadLink.download = 'grafico_enr';
     aDownloadLink.href = document.getElementById('chartDw').getElementsByClassName('chart-img')[0].src;
     aDownloadLink.click();
+}
+
+async function downloadImage() {
+  const image = await fetch(document.getElementById('chartDw').getElementsByClassName('chart-img')[0].src)
+  const imageBlog = await image.blob()
+  const imageURL = URL.createObjectURL(imageBlog)
+
+  const link = document.createElement('a');
+  link.href = imageURL;
+  link.download = 'grafico_enr_v1';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 let pngDownload = document.getElementById('pngImage');
 
 pngDownload.addEventListener('click', function(){
-    setChartCanvasImage();
+    //setChartCanvasImage();
+    downloadImage();
 });
 //// FINAL - DESCARGA IMAGEN ////
 
