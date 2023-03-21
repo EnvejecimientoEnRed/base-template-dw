@@ -13,7 +13,6 @@ setChartHeight();
 
 //// DESCARGA IMAGEN ////
 function setChartCanvasImage() {    
-    let image = innerCanvas.toDataURL();
     let aDownloadLink = document.createElement('a');
     aDownloadLink.download = 'grafico_enr'; //Posibilidad de cambiar el nombre ¡¡¡MODIFICAR!!!
     aDownloadLink.href = document.getElementById('chartDw').getElementsByClassName('chart-img')[0].src;
