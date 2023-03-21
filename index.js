@@ -10,15 +10,7 @@ function setChartHeight() {
 setChartHeight();
 //// FINAL ALTURA ////
 
-
 //// DESCARGA IMAGEN ////
-function setChartCanvasImage() {    
-    let aDownloadLink = document.createElement('a');
-    aDownloadLink.download = 'grafico_enr';
-    aDownloadLink.href = document.getElementById('chartDw').getElementsByClassName('chart-img')[0].src;
-    aDownloadLink.click();
-}
-
 async function downloadImage() {
   const image = await fetch(document.getElementById('chartDw').getElementsByClassName('chart-img')[0].src)
   const imageBlog = await image.blob()
@@ -26,7 +18,7 @@ async function downloadImage() {
 
   const link = document.createElement('a');
   link.href = imageURL;
-  link.download = 'grafico_enr_v1';
+  link.download = 'grafico_enr';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -35,7 +27,6 @@ async function downloadImage() {
 let pngDownload = document.getElementById('pngImage');
 
 pngDownload.addEventListener('click', function(){
-    //setChartCanvasImage();
     downloadImage();
 });
 //// FINAL - DESCARGA IMAGEN ////
